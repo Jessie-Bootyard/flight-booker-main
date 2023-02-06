@@ -1,0 +1,74 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col ms-auto">
+			<% if @flights.present? %>
+				<table class="table table-hover table-bordered border-success">
+					<thead>
+						<tr class="text-center text-success">
+							<th scope="col">#</th>
+							<th scope="col">From</th>
+							<th scope="col">Distanation</th>
+							<th scope="col">Airline Company</th>
+							<th scope="col">Schedule</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<% @flights.each do |flight| %>
+						<tbody class="tabel-group-divider border-success">
+							<tr class="text-center">
+								<td><%= @no += 1 %></td>
+								<td><%= flight.depature_airport.code %></td>
+								<td><%= flight.arrival_airport.code %></td>
+								<td><%= flight.airlines %></td>
+								<td><%= flight.start %></td>
+								<td>
+									<%= form_with url: new_booking_path, method: :get, local: true do |f| %>
+										<%= f.hidden_field :flight_id, value: flight.id %>
+										<%= f.hidden_field :tickets, value: params[:tickets] %>
+										<%= f.submit "Select", class: "btn btn-outline-success" %>
+									<% end %>
+								</td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			<% else %>
+				<h2 class="text-center" style="color: goldenrod; letter-spacing: 2px;">FLIGHT BOOKER PH.
+					<p style=" font-size: 17px !important; color: goldenrod; letter-spacing: 0; font-style: italic; font-weight: normal;">
+						Flight Booking made easier at : <a href="#" style="font-style: normal; color: dodgerblue; font-size: 15px;">flightbookingph.com</a>
+					</p>
+				</h2>
+			<% end %>
+		</div>
+				<div class="col col-md-5 text-center">
+			<div class="row">
+				<%= form_with(url: root_path, method: :get, data: { turbo_frame: "flights" } ) do |f| %>
+					<div class="row">
+						<div class="col">
+						<%= f.label :From, style: "display: block", class: "form-label" %>
+						<%= f.collection_select(:depature_airport, Airport.all, :id, :code, { prompt: "Select  airport" }, { class: "form-select" } ) %>
+						</div>
+						<div class="col mb-3">
+							<%= f.label :Distination, style: "display: block", class: "form-label" %>
+							<%= f.collection_select(:arrival_airport, Airport.all, :id, :code, { prompt: "Select arrival aiport" }, { class: "form-select" } ) %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<%= f.label :flight_date, style: "display: block", class: "form-label" %>
+							<%= f.collection_select(:start, Flight.select(:start).distinct.order(:start), :start, :start, { prompt: "Select flight date" }, { class: "form-select" } ) %>
+						</div>
+						<div class="col mb-3">
+							<%= f.label :tickets, style: 'display: blocck', class: "form-label" %>
+							<%= f.select(:tickets, options_for_select([1,2,3,4,5,6,7]), {}, { class: "form-select" }) %>
+						</div>
+					</div>
+					<div class="mb-3 d-grid gap-2">
+						<%= f.submit value: "Search", class: "btn btn-outline-success" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container d-flex justify-content-center">
+	<div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
+		<div class="card-body">
+			<h4 class="card-title text-center text-success">
+				Flight detail
+			</h4>
+			<hr class="divider">
+			<p class="card-text">
+				<table class="mx-auto">
+					<tr>
+						<td class="fw-bold">Flight route &nbsp;</td>
+						<td>: <%= @flight.depature_airport.code %> -> <%= @flight.arrival_airport.code %></td>
+					</tr>
+					<tr>
+						<td class="fw-bold">Date </td>
+						<td>: <%= @flight.start %></td>
+					</tr>
+					<tr>
+						<td class="fw-bold">Airline</td>
+						<td>: <%= @flight.airlines %></td>
+					</tr>
+					<tr class="mx-auto" data-turbo="false">
+						<td class="fw-bold text-center" colspan="3">
+							<div class="mb-3">
+								Passengers Details
+							</div>
+							<%= form_with(model: @booking, local: true) do |f| %>
+								<%= f.hidden_field :flight_id, value: @flight.id %>
+									<%= f.fields_for :passengers do |passenger| %>
+										<div class="row">
+											<div class="col">
+												<%= passenger.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+											</div>
+											<div class="col">
+												<%= passenger.email_field :email, class: "form-control", placeholder: "E-mail", required: true %>
+											</div>
+										</div>
+										<hr class="divider">
+									<% end %>
+								<%= f.submit "Purchase Tickets", class: "btn btn-outline-success" %>
+							<% end %>
+						</td>
+					</tr>
+				</table>
+			</p>
+		</div>
+	</div>
+</div>

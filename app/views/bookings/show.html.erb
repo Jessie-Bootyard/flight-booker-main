@@ -1,0 +1,43 @@
+<div class="container d-flex justify-content-center">
+	<div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 25rem;">
+		<div class="card-body">
+			<h4 class="card-title text-center text-success">
+				Your Flight Details
+			</h4>
+			<p class="card-text">
+				<table class="mx-auto">
+					<tr>
+						<td class="fw-bold">Flight route &nbsp;</td>
+						<td>: <%= @booking.flight.depature_airport.code %> to <%= @booking.flight.arrival_airport.code %></td>
+					</tr>
+					<tr>
+						<td class="fw-bold">Date </td>
+						<td>: <%= @booking.flight.start %></td>
+					</tr>
+					<tr>
+						<td class="fw-bold">Airline</td>
+						<td>: <%= @booking.flight.airlines %></td>
+					</tr>
+					<hr class="divider">
+					<tr class="mx-auto">
+						<td class="fw-bold text-center" colspan="3">
+							<div class="mb-3">
+								Passengers Detail
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="fw-bold">Name </td>
+						<td class="fw-bold">E-mail</td>
+					</tr>
+					<% @passengers.each do |passenger| %>
+					<tr>
+						<td><%= passenger.name %></td>
+						<td><%= passenger.email %></td>
+					</tr>
+					<% end %>
+				</table>
+			</p>
+		</div>
+	</div>
+</div>

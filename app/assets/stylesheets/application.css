@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .bg-success {
+    --darkreader-bg--bs-bg-opacity: 1;
+    background-color: #0d1117 !important;
+}
+.text-center {
+    text-align: center !important;
+    background-color: #0d1117;
+    padding: 1rem;
+    border-radius: 6px;
+    color: #198754 !important;
+}
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #161b22 !important;
+
+}
+.alert-danger {
+    color: #842029 !important;
+}
+.alert-d {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #842029;
+    color: white !important;
+}
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #198754;
+    color: white !important;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #198754 !important;
+    background-color: #0d1117;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #198754;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-select:hover, .form-select:focus {
+    background-color: #198754;
+    color: #fff !important;
+    border-color: #198754 !important;
+    box-shadow: none !important;
+
+}
+option{
+    background-color: #0d1117 !important;
+    border: .01rem solid #198754 !important; 
+    color: #198754 !important;
+    padding: 1em !important;
+    text-align: center;
+}
+
+tr:hover td{
+    color:#198754 !important;
+    background-color: #1d2126;
+}
+.card {
+    color: white !important;
+    background-color: #0d1117 !important;
+    border-radius: 6px;
+}
+.form-control {
+    color: #198754 !important;
+    background-color:#0d1117;
+    border-bottom: .01rem solid #198754;
+    border-radius: 0;
+    text-align: center;
+    border-top: #0d1117;
+    border-left: #0d1117;
+    border-right: #0d1117;
+}
+.form-control:hover, .form-control:focus{
+    box-shadow: none !important;
+    border-color: #198754;
+    background-color: #0d1117;
+    color: #198754 !important;
+
+}
+.mx-auto:hover td {
+    background-color:#0d1117 !important;
+}
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    color: #198754;
+}
